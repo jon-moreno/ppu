@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+</head>
+
+<body>
+  <script src="../scripts/main.js"></script>
+  <h1 id='main-header' onclick="testHeader()">Does it work?</h1>
+  <form id="calculatorInputForm">
+  <table>
+    <thead>
+      <tr>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Unit</th>
+        <th>Unit Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input id="price" type="number"></td>
+        <td><input id="amount" type="number"></td>
+        <td><select id="unit"></select></td>
+        <td><input id="unitPrice" disabled="true" type="number"></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
+    <tfoot><tr>
+      <td><input name="reset" type="reset"></td>
+      <td><input name="submit" type="button" value="Submit" onclick="calculateUnitPrice()"></td>
+    </tr></tfoot>
+  </table>
+</form>
+<p id="testParagraph">test</p>
+</body>
+
+</html>
