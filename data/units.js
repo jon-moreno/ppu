@@ -6,6 +6,6 @@ units =
     },
     "ounces": {
       "abbreviation": "oz",
-      "conversionFactor": "16"
+      "conversionFactor": "0.0625"
     }
   }

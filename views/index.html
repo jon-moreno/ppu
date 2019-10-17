@@ -18,23 +18,26 @@
         <th>Amount</th>
         <th>Unit</th>
         <th>Unit Price</th>
+        <th>Price per Pound</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><input id="price" type="number"></td>
-        <td><input id="amount" type="number"></td>
-        <td><select id="unit" onl></select></td>
-        <td><input id="unitPrice" disabled="true" type="number"></td>
+        <td><input id="price1" type="number" oninput="calculateUnitPrice('1')"></td>
+        <td><input id="amount1" type="number" oninput="calculateUnitPrice('1')"></td>
+        <td><select id="unit1" onchange="calculateUnitPrice('1')"></select></td>
+        <td><input id="unitPrice1" disabled="true" type="number"></td>
+        <td><input id="pricePerPound1" disabled="true" type="number"></td>
+        <td><input id="reset" type="reset" onclick=""></td> <!-- Make this reset the row -->
       </tr>
       <tr>
-        <td></td>
+        <td><input id="addRowButton" type="button" value="Add Row" onclick="addRow()"></td>
       </tr>
     </tbody>
-    <tfoot><tr>
-      <td><input id="reset" type="reset"></td>
-      <td><input id="submit" type="button" value="Submit" onclick="calculateUnitPrice()"></td>
-    </tr></tfoot>
+    <!-- <tfoot><tr>
+      
+      <td><input id="submitButton" type="button" value="Submit" onclick="calculateUnitPrice()"></td>
+    </tr></tfoot> -->
   </table>
 </form>
 </body>
