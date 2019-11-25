@@ -21,17 +21,17 @@
         <th>Price per Pound</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id='calculatorBody'>
       <tr>
-        <td><input id="price1" type="number" oninput="calculateUnitPrice('1')"></td>
-        <td><input id="amount1" type="number" oninput="calculateUnitPrice('1')"></td>
-        <td><select id="unit1" onchange="calculateUnitPrice('1')"></select></td>
+        <td><input id="price1" type="number" oninput="calculateUnitPrice(1)"></td>
+        <td><input id="amount1" type="number" oninput="calculateUnitPrice(1)"></td>
+        <td><select id="unit1" onchange="calculateUnitPrice(1)"></select></td>
         <td><input id="unitPrice1" disabled="true" type="number"></td>
         <td><input id="pricePerPound1" disabled="true" type="number"></td>
-        <td><input id="reset" type="reset" onclick=""></td> <!-- Make this reset the row -->
+        <td><button id="clearRowButton1" onclick="clearRow(1)">Clear</button></td> <!-- Make this reset the row -->
       </tr>
       <tr>
-        <td><input id="addRowButton" type="button" value="Add Row" onclick="addRow()"></td>
+        <td><input id="addRowButton" type="button" value="Add Row" onclick="addRow(1)"></td>
       </tr>
     </tbody>
     <!-- <tfoot><tr>

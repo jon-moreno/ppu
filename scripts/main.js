@@ -1,5 +1,5 @@
 var units = JSON.parse(units);
-var rowCount = 1;
+var unitOptions;
 
 function init() {
     loadUnits();
@@ -19,21 +19,44 @@ function calculateUnitPrice(rowNumber) {
     document.getElementById("pricePerPound"+rowNumber).setAttribute("value", pricePerPound);
 };
 
-function test() {
-    var test = document.getElementById("unit1").value;
+function test(testParameter) {
+    // var test = document.getElementById("unit1").value;
+    var test = testParameter
     document.getElementById("testParagraph").append(test);
 };
 
 function loadUnits() {
     for (const key in units) {
         if (units.hasOwnProperty(key)) {
-            document.getElementById("unit1").innerHTML += "<option value=" + key + ">" + units[key].abbreviation + "</option>"
+            unitOptions += "<option value=" + key + ">" + units[key].abbreviation + "</option>";
+            document.getElementById("unit1").innerHTML += unitOptions;
 
         }
     }
 };
 
-function addRow(params) {
+function clearRow(rowNumber){
+    document.getElementById("price"+rowNumber).setAttribute("value", "");
+    document.getElementById("amount"+rowNumber).setAttribute("value", "");
+    document.getElementById("unitPrice1").setAttribute("value", "");
+    document.getElementById("pricePerPound"+rowNumber).setAttribute("value", "");
+}
+
+function addRow(rowCount) {
+    rowCount++;
+    console.log(rowCount);
+    var newRow = `    <tr>
+    <td><input id="price`+rowCount+`" type="number" oninput="calculateUnitPrice(`+rowCount+`)"></td>
+    <td><input id="amount`+rowCount+`" type="number" oninput="calculateUnitPrice(`+rowCount+`)"></td>
+    <td><select id="unit`+rowCount+`" onchange="calculateUnitPrice(`+rowCount+`)">`+unitOptions+`</select></td>
+    <td><input id="unitPrice`+rowCount+`" disabled="true" type="number"></td>
+    <td><input id="pricePerPound`+rowCount+`" disabled="true" type="number"></td>
+    <td><button id="clearRowButton`+rowCount+`" onclick="clearRow(`+rowCount+`)">Clear</button></td>
+  </tr>
+    `;
+
+    document.getElementById("calculatorBody").innerHTML += newRow;
+
     //Count of rows exlcuding addRowButton row
     //Create a row whose data id
     //Store count for use in other functions
